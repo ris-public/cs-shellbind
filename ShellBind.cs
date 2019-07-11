@@ -9,7 +9,7 @@ using System.Buffers;
 
 
 namespace ProxyClient {
-	class ProxySocket{
+	class ShellBind{
 
 		protected StreamWriter A;
 		protected StreamReader B;
