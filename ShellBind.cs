@@ -42,9 +42,6 @@ namespace ShellBind {
 			this.Proc.StartInfo.UseShellExecute = false;
 			this.Proc.StartInfo.RedirectStandardOutput = true;
 			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
-			SetColour(5,0);
-			System.Console.Error.WriteLine(Proc.StartInfo.FileName + " " + Proc.StartInfo.Arguments);
-			ResetColour();
 			Proc.StartInfo.RedirectStandardInput=true;
 			Proc.Start();
 
