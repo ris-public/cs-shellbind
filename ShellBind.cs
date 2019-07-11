@@ -6,10 +6,11 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers;
+using PairStream;
 
 
-namespace ProxyClient {
-	class ShellBind{
+namespace ShellBind {
+	class ShellSocket{
 
 		protected StreamWriter A;
 		protected StreamReader B;
