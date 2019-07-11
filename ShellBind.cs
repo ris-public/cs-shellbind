@@ -12,6 +12,7 @@ using PairStream;
 namespace ShellBind {
 	class ShellSocket{
 
+		protected bool VERBOSE;
 		protected StreamWriter A;
 		protected StreamReader B;
 		protected Process Proc = new Process();
@@ -26,6 +27,7 @@ namespace ShellBind {
 			this.Args=Args;
 			Unbuffer = "stdbuf";
 			Unbuffer_Args="-i0 -o0";
+			this.VERBOSE=false;
 
 		}
 		public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
@@ -34,6 +36,7 @@ namespace ShellBind {
 			this.Args=Args;
 			this.Unbuffer = Unbuffer_Command;
 			this.Unbuffer_Args=Unbuffer_Args;
+			this.VERBOSE=false;
 
 		}
 		public void Start(){
@@ -44,6 +47,11 @@ namespace ShellBind {
 			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
 			Proc.StartInfo.RedirectStandardInput=true;
 			Proc.Start();
+			if (VERBOSE){
+				SetColour(5,0);
+				System.Console.Error.WriteLine(Proc.StartInfo.FileName + " " + Proc.StartInfo.Arguments);
+				ResetColour();
+			}
 
 			A = Proc.StandardInput;
 			B = Proc.StandardOutput;
