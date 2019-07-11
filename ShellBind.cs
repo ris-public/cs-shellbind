@@ -16,7 +16,7 @@ namespace ShellBind {
 		protected StreamReader B;
 		protected Process Proc = new Process();
 		protected string Command;
-		protected int Args;
+		protected string Args;
 		public string Unbuffer;
 		public string Unbuffer_Args;
 
@@ -41,7 +41,7 @@ namespace ShellBind {
 			this.Proc.StartInfo.FileName=$"{Unbuffer}";
 			this.Proc.StartInfo.UseShellExecute = false;
 			this.Proc.StartInfo.RedirectStandardOutput = true;
-			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Conmand} {Args}";
+			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
 			SetColour(5,0);
 			System.Console.Error.WriteLine(Proc.StartInfo.FileName + " " + Proc.StartInfo.Arguments);
 			ResetColour();
