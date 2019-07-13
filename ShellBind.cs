@@ -39,7 +39,7 @@ namespace ShellBind {
 		protected StreamWriter ErrDestination;
 		private bool _RedirectErrorsToConsole;
 		public bool RedirectErrorsToConsole{
-			get {return _RedirectErrorsToConsole;};
+			get {return _RedirectErrorsToConsole;}
 			set {
 				if(value==true){
 					this.Proc.StartInfo.UseShellExecute=false;
@@ -49,8 +49,8 @@ namespace ShellBind {
 					this.Proc.StartInfo.UseShellExecute=true;
 				}
 				this._RedirectErrorsToConsole=value;
-			};
-		};
+			}
+		}
 		public bool RedirectErrorsToStream;
 
 		public ShellSocket(string Command, string Args){
@@ -59,8 +59,8 @@ namespace ShellBind {
 			this.Args=Args;
 			Unbuffer = "stdbuf";
 			Unbuffer_Args="-i0 -o0";
-			this._RedirectErrorsToConsole=value;
-			this.RedirectErrorsToStream=value;
+			this._RedirectErrorsToConsole=false;
+			this.RedirectErrorsToStream=false;
 			this.VERBOSE=false;
 
 		}
@@ -70,8 +70,8 @@ namespace ShellBind {
 			this.Args=Args;
 			this.Unbuffer = Unbuffer_Command;
 			this.Unbuffer_Args=Unbuffer_Args;
-			this._RedirectErrorsToConsole=value;
-			this.RedirectErrorsToStream=value;
+			this._RedirectErrorsToConsole=false;
+			this.RedirectErrorsToStream=false;
 			this.VERBOSE=false;
 
 		}
@@ -94,7 +94,7 @@ namespace ShellBind {
 			A = Proc.StandardInput;
 			B = Proc.StandardOutput;
 			if(RedirectErrorsToStream){
-				Destination=Proc.StandardError;
+				Proc.StandardError.BaseStream.CopyToAsync(ErrDestination.BaseStream);
 			}
 		}
 
@@ -111,7 +111,7 @@ namespace ShellBind {
 			Proc.WaitForExit();
 		}
 
-		public CopyErrorsTo(Stream Destination){
+		public void CopyErrorsTo(StreamWriter Destination){
 			this.ErrDestination=Destination;
 			RedirectErrorsToStream=true;
 		}
