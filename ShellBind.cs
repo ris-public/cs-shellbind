@@ -59,6 +59,8 @@ namespace ShellBind {
 			this.Args=Args;
 			Unbuffer = "stdbuf";
 			Unbuffer_Args="-i0 -o0";
+			this._RedirectErrorsToConsole=value;
+			this.RedirectErrorsToStream=value;
 			this.VERBOSE=false;
 
 		}
@@ -68,6 +70,8 @@ namespace ShellBind {
 			this.Args=Args;
 			this.Unbuffer = Unbuffer_Command;
 			this.Unbuffer_Args=Unbuffer_Args;
+			this._RedirectErrorsToConsole=value;
+			this.RedirectErrorsToStream=value;
 			this.VERBOSE=false;
 
 		}
