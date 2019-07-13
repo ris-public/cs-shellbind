@@ -37,7 +37,20 @@ namespace ShellBind {
 		public string Unbuffer;
 		public string Unbuffer_Args;
 		protected StreamWriter ErrDestination;
-		public bool RedirectErrorsToConsole;
+		private bool _RedirectErrorsToConsole;
+		public bool RedirectErrorsToConsole{
+			get {return _RedirectErrorsToConsole;};
+			set {
+				if(value==true){
+					this.Process.StartInfo.UseShellExecute=false;
+				}
+				else
+				{
+					this.Process.StartInfo.UseShellExecute=true;
+				}
+				this._RedirectErrorsToConsole=value;
+			};
+		};
 
 		public ShellSocket(string Command, string Args){
 			this.Proc = new Process();
