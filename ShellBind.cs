@@ -36,6 +36,8 @@ namespace ShellBind {
 		protected string Args;
 		public string Unbuffer;
 		public string Unbuffer_Args;
+		protected StreamWriter ErrDestination;
+		public bool RedirectErrorsToConsole;
 
 		public ShellSocket(string Command, string Args){
 			this.Proc = new Process();
