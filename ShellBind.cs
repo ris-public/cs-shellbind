@@ -86,6 +86,10 @@ namespace ShellBind {
 			Proc.WaitForExit();
 		}
 
+		public CopyErrorsTo(Stream Destination){
+			this.ErrDestination=Destination;
+		}
+
 		private static void SetColour(int fg, int bg){
 			System.Console.Error.WriteLine($"\u001b[1;3{fg}m");
 			System.Console.Error.WriteLine($"\u001b[4{bg}m");
