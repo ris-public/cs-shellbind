@@ -42,15 +42,16 @@ namespace ShellBind {
 			get {return _RedirectErrorsToConsole;};
 			set {
 				if(value==true){
-					this.Process.StartInfo.UseShellExecute=false;
+					this.Proc.StartInfo.UseShellExecute=false;
 				}
 				else
 				{
-					this.Process.StartInfo.UseShellExecute=true;
+					this.Proc.StartInfo.UseShellExecute=true;
 				}
 				this._RedirectErrorsToConsole=value;
 			};
 		};
+		public bool RedirectErrorsToStream;
 
 		public ShellSocket(string Command, string Args){
 			this.Proc = new Process();
@@ -88,6 +89,9 @@ namespace ShellBind {
 
 			A = Proc.StandardInput;
 			B = Proc.StandardOutput;
+			if(RedirectErrorsToStream){
+				Destination=Proc.StandardError;
+			}
 		}
 
 		public Stream GetStream(){
@@ -105,6 +109,7 @@ namespace ShellBind {
 
 		public CopyErrorsTo(Stream Destination){
 			this.ErrDestination=Destination;
+			RedirectErrorsToStream=true;
 		}
 
 		private static void SetColour(int fg, int bg){
