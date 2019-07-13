@@ -64,6 +64,8 @@ namespace ShellBind {
 			this.Proc.StartInfo.RedirectStandardOutput = true;
 			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
 			Proc.StartInfo.RedirectStandardInput=true;
+			if (RedirectErrorsToConsole){
+			}
 			Proc.Start();
 			if (VERBOSE){
 				SetColour(5,0);
