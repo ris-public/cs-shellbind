@@ -25,8 +25,8 @@ namespace ProxyClient
 {
 	class Program
 	{
-		StreamWriter sw = new StreamWriter(Console.Out)
-		StreamWriter sr = new StreamReader(Console.In)
+		StreamWriter sw = new StreamWriter(Console.Out);
+		StreamWriter sr = new StreamReader(Console.In);
 		ShellSocket SS = new ShellSocket("ls", "-lah");
 		Stream S = SS.GetPair();
 		BindStreams (new Pair (sr, sw), S);
