@@ -18,13 +18,12 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers;
-using ProxyClient;
-using PairStream;
+using ShellBind;
 
 namespace ProxyClient
 {
 	class Program
 	{
-		public ShellSocket(string Command, string Args){}
+		ShellSocket SS = new ShellSocket("ls", "-lah");
 	}
 }
