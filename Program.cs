@@ -29,8 +29,7 @@ namespace ProxyClient
 		StreamWriter sr = new StreamReader(Console.In)
 		ShellSocket SS = new ShellSocket("ls", "-lah");
 		Stream S = SS.GetPair();
-		
-		BindStreams (P, S);
+		BindStreams (new Pair (sr, sw), S);
 		SS.Start();
 	}
 }
