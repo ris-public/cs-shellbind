@@ -19,11 +19,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers;
 using ShellBind;
+using PairStream;
 
 namespace ProxyClient
 {
 	class Program
 	{
 		ShellSocket SS = new ShellSocket("ls", "-lah");
+		
 	}
 }
