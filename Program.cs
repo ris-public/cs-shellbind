@@ -26,6 +26,8 @@ namespace ProxyClient
 	class Program
 	{
 		ShellSocket SS = new ShellSocket("ls", "-lah");
-		
+		Stream S = SS.GetPair();
+		BindStreams (P, S);
+		SS.Start();
 	}
 }
