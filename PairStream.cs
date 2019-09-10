@@ -68,6 +68,10 @@ namespace PairStream{
 			new Thread(()=>A.CopyTo(B)).Start();
 			new Thread(()=>B.CopyTo(A)).Start();
 		}
+		public static void BindStreamsAsync(Stream A, Stream B){
+			new Thread(()=>A.CopyToAsync(B)).Start();
+			new Thread(()=>B.CopyToAsync(A)).Start();
+		}
 	}
 	public class statpair: pair {
 		private ulong _BR;
