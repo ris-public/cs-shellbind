@@ -100,7 +100,7 @@ namespace ShellBind {
 
 		public Stream GetStream(){
 			if (VERBOSE) if (A==null || B==null)
-                                System.Console.WriteLine("A or B is null. Try start() before calling this. A:{0}, B:{1}", A, B);
+                                System.Console.WriteLine("B/A (I/O Stream) is null. Try start() before calling this. A:{0}, B:{1}.", A, B);
 			return new pair(B,A);
 		}
 		public void Kill(){
