@@ -23,13 +23,22 @@ using PairStream;
 
 namespace ProxyClient
 {
-	class Program
-	{
-		StreamWriter sw = new StreamWriter(Console.Out);
-		StreamWriter sr = new StreamReader(Console.In);
-		ShellSocket SS = new ShellSocket("ls", "-lah");
-		Stream S = SS.GetPair();
-		BindStreams(new Pair(sr, sw), S);
-		SS.Start();
-	}
+        class Program
+        {
+                static int Main(string[] args){
+                        ShellSocket SS = new ShellSocket("yes", "hi");
+                        System.Console.WriteLine("Starting...");
+                        SS.Start();
+                        Stream S = SS.GetStream();
+                        System.Console.WriteLine("ShellSocket created...");
+                        pair P = new pair(new StreamReader(Console.OpenStandardInput()), new StreamWriter(Console.OpenStandardOutput()));
+                        System.Console.WriteLine("Pair created...");
+                        System.Console.WriteLine("{0}", new StreamWriter(Console.OpenStandardOutput()));
+                        System.Console.WriteLine("Binding...");
+                        System.Console.WriteLine("P:{0} S:{1}", P, S);
+                        PairStream.pair.BindStreams(P, S);
+                        return 0;
+                }
+        }
 }
+
