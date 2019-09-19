@@ -12,7 +12,7 @@
 <Description>
 Bind command as stream.
 </Description>
-<License></License>
+<License>Apache-2.0</License>
   </PropertyGroup>
 
 </Project>
