@@ -4,6 +4,15 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>cs_shellbind</RootNamespace>
+<PackageId>Rishi.ShellBind</PackageId>
+<Version>1.0.0</Version>
+<Authors>Rishikeshan L.</Authors>
+<Company>N/A</Company>
+<PackageTags>Shell;Stream</PackageTags>
+<Description>
+Bind command as stream.
+</Description>
+<License></License>
   </PropertyGroup>
 
 </Project>
