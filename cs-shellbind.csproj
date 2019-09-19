@@ -13,6 +13,7 @@
 Bind command as stream.
 </Description>
 <License>Apache-2.0</License>
+<projectUrl>https://github.com/ris-public/cs-shellbind</projectUrl>
   </PropertyGroup>
 
 </Project>
