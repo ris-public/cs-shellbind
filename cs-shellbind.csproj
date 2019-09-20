@@ -14,9 +14,10 @@ Bind command as stream.
 </Description>
 <License>Apache-2.0</License>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-<projectUrl>https://github.com/ris-public/cs-shellbind</projectUrl>
+<projectUrl>https://ris.rocks/</projectUrl>
 <RepositoryUrl>https://github.com/ris-public/cs-shellbind</RepositoryUrl>
 <PackageIconUrl></PackageIconUrl>
+<IncludeSource>true</IncludeSource>
   </PropertyGroup>
 
 </Project>
