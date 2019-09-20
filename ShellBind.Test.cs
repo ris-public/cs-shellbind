@@ -18,8 +18,8 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers;
-using ShellBind;
-using PairStream;
+using Rishi.ShellBind;
+using Rishi.PairStream;
 
 namespace ProxyClient
 {
@@ -36,7 +36,7 @@ namespace ProxyClient
                         System.Console.WriteLine("{0}", new StreamWriter(Console.OpenStandardOutput()));
                         System.Console.WriteLine("Binding...");
                         System.Console.WriteLine("P:{0} S:{1}", P, S);
-                        PairStream.pair.BindStreams(P, S);
+                        Rishi.PairStream.pair.BindStreams(P, S);
                         return 0;
                 }
         }
