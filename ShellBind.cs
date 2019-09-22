@@ -26,7 +26,7 @@ using Rishi.PairStream;
 
 
 namespace Rishi.ShellBind {
-	class ShellSocket{
+	public class ShellSocket{
 
 		protected bool VERBOSE;
 		protected StreamWriter A;
