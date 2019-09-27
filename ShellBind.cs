@@ -26,6 +26,9 @@ using Rishi.PairStream;
 
 
 namespace Rishi.ShellBind {
+///<summary>
+/// The ShellSocket class.
+///</summary>
 	public class ShellSocket{
 
 		protected bool VERBOSE;
@@ -34,7 +37,11 @@ namespace Rishi.ShellBind {
 		protected Process Proc = new Process();
 		protected string Command;
 		protected string Args;
+
 		public string Unbuffer;
+		///<summary>
+		///Argumants to the shell unbuffer/stdbuf command, default: none.
+		///</summary>
 		public string Unbuffer_Args;
 		protected StreamWriter ErrDestination;
 		private bool _RedirectErrorsToConsole;
