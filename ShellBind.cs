@@ -83,6 +83,9 @@ namespace Rishi.ShellBind {
 			this.VERBOSE=false;
 
 		}
+		///<summary>
+		///Constructor.
+		///</summary>
 		public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
 			this.Proc = new Process();
 			this.Command=Command;
@@ -94,6 +97,9 @@ namespace Rishi.ShellBind {
 			this.VERBOSE=false;
 
 		}
+		///<summary>
+		///Starts the process.
+		///</summary>
 		public void Start(){
 
 			this.Proc.StartInfo.FileName=$"{Unbuffer}";
@@ -117,14 +123,23 @@ namespace Rishi.ShellBind {
 			}
 		}
 
+		///<summary>
+		///Get the Stream formed by the process.
+		///</summary>
 		public Stream GetStream(){
 			if (VERBOSE) if (A==null || B==null)
                                 System.Console.WriteLine("B/A (I/O Stream) is null. Try start() before calling this. A:{0}, B:{1}.", A, B);
 			return new pair(B,A);
 		}
+		///<summary>
+		///Kill the process.
+		///</summary>
 		public void Kill(){
 			Proc.Kill();
 		}
+		///<summary>
+		///Close the process.
+		///</summary>
 		public void Close(){
 			Proc.Close();
 		}
