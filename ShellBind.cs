@@ -69,6 +69,9 @@ namespace Rishi.ShellBind {
 		///</summary>
 		public bool RedirectErrorsToStream;
 
+		///<summary>
+		///Constructor. Uses the GNU/BSD stdbuf by default. If you don't like it, please see the one which specifies it and pass an empty string.
+		///</summary>
 		public ShellSocket(string Command, string Args){
 			this.Proc = new Process();
 			this.Command=Command;
