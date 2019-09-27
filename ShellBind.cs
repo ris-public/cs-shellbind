@@ -125,6 +125,7 @@ namespace Rishi.ShellBind {
 
 		///<summary>
 		///Get the Stream formed by the process.
+		///Should be Start()ed first.
 		///</summary>
 		public Stream GetStream(){
 			if (VERBOSE) if (A==null || B==null)

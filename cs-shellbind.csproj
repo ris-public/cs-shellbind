@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>cs_shellbind</RootNamespace>
 <PackageId>Rishi.ShellBind</PackageId>
-<Version>1.1.0</Version>
+<Version>1.1.1</Version>
 <Authors>Rishikeshan L.</Authors>
 <Company>N/A</Company>
 <PackageTags>Shell;Stream</PackageTags>
@@ -22,6 +22,7 @@ Bind command as stream.
 <Copyright>Copyright © [2019] RISHIKESHAN LAVAKUMAR "github-public [at] ris.fi"
 </Copyright>
 <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
