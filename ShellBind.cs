@@ -48,6 +48,9 @@ namespace Rishi.ShellBind {
 		public string Unbuffer_Args;
 		protected StreamWriter ErrDestination;
 		private bool _RedirectErrorsToConsole;
+		///<summary>
+		///Whether error stream (STDERR) should be redirected to STDOUT.
+		///</summary>
 		public bool RedirectErrorsToConsole{
 			get {return _RedirectErrorsToConsole;}
 			set {
@@ -61,6 +64,9 @@ namespace Rishi.ShellBind {
 				this._RedirectErrorsToConsole=value;
 			}
 		}
+		///<summary>
+		///Whether error stream (STDERR) should be redirected to a stream.
+		///</summary>
 		public bool RedirectErrorsToStream;
 
 		public ShellSocket(string Command, string Args){
