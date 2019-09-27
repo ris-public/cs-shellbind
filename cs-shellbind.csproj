@@ -18,7 +18,7 @@ Bind command as stream.
 <PackageIconUrl>https://ris.rocks/favicon.ico</PackageIconUrl>
 <IncludeSource>true</IncludeSource>
 <PackageprojectUrl>https://ris.fi/</PackageprojectUrl>
-<PackageIcon>icon.png</PackageprojectUrl>
+<PackageIcon>icon.png</PackageIcon>
 <Copyright>Copyright © [2019] RISHIKESHAN LAVAKUMAR "github-public [at] ris.fi"
 </Copyright>
 <TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
