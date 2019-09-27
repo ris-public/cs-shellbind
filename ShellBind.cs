@@ -143,10 +143,16 @@ namespace Rishi.ShellBind {
 		public void Close(){
 			Proc.Close();
 		}
+		///<summary>
+		///Wait for the process to exit.
+		///</summary>
 		public void WaitForExit(){
 			Proc.WaitForExit();
 		}
 
+		///<summary>
+		///Set the stream to copy STDERR to.
+		///</summary>
 		public void CopyErrorsTo(StreamWriter Destination){
 			this.ErrDestination=Destination;
 			RedirectErrorsToStream=true;
