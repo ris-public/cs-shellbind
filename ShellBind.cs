@@ -38,9 +38,12 @@ namespace Rishi.ShellBind {
 		protected string Command;
 		protected string Args;
 
+		///<summary>
+		///The shell unbuffer/stdbuf command, default: none.
+		///</summary>
 		public string Unbuffer;
 		///<summary>
-		///Argumants to the shell unbuffer/stdbuf command, default: none.
+		///Arguments to the shell unbuffer/stdbuf command, default: none.
 		///</summary>
 		public string Unbuffer_Args;
 		protected StreamWriter ErrDestination;
