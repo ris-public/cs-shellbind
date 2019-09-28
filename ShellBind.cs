@@ -121,6 +121,7 @@ namespace Rishi.ShellBind {
 						Proc.StartInfo.RedirectStandardInput=true;
 						if (RedirectErrorsToConsole){
 							CopyErrorsTo(new StreamWriter(Console.OpenStandardError()));
+								Proc.StartInfo.RedirectStandardError=true;
 						}
 						Proc.Start();
 						if (VERBOSE){
