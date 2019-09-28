@@ -37,6 +37,9 @@ namespace Rishi.ShellBind {
 		protected bool VERBOSE;
 		protected StreamWriter A;
 		protected StreamReader B;
+		///<summary>
+		///The process: <c>System.Diagnostics.Process</c>.
+		///</summary>
 		protected Process Proc = new Process();
 		protected string Command;
 		protected string Args;
