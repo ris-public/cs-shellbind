@@ -31,6 +31,9 @@ namespace Rishi.ShellBind {
 ///</summary>
 	public class ShellSocket{
 
+		///<summary>
+		///Verbosity.
+		///</summary>
 		protected bool VERBOSE;
 		protected StreamWriter A;
 		protected StreamReader B;
