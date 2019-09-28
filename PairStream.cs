@@ -23,6 +23,9 @@ using System.Threading.Tasks;
 using System.Buffers;
 
 namespace Rishi.PairStream{
+///<summary>
+/// The pair class of the module Rishi.PairStream. Binds a StreamWriter and a StrelamReader as a stream.
+///</summary>
 	public class pair : System.IO.Stream{
 		private StreamWriter _B;
 		private StreamReader _A;
