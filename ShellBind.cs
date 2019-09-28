@@ -108,7 +108,7 @@ namespace Rishi.ShellBind {
 				///</summary>
 				public void Start(){
 
-						if(Unbuffer == "" or Unbuffer==null){
+						if(Unbuffer == "" || Unbuffer==null){
 								this.Proc.StartInfo.FileName=$"{Command}";
 								Proc.StartInfo.Arguments=$"{Args}";
 						}
