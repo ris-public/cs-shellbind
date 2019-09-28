@@ -122,7 +122,12 @@ namespace Rishi.ShellBind {
 						if (RedirectErrorsToConsole){
 							CopyErrorsTo(new StreamWriter(Console.OpenStandardError()));
 								Proc.StartInfo.RedirectStandardError=true;
+								Proc.StartInfo.UseShellExecute=false;
 						}
+						if(RedirectErrorsToStream){
+								Proc.StartInfo.UseShellExecute=false;
+								Proc.StartInfo.RedirectStandardError=true;
+							}
 						Proc.Start();
 						if (VERBOSE){
 								SetColour(5,0);
@@ -133,8 +138,6 @@ namespace Rishi.ShellBind {
 						A = Proc.StandardInput;
 						B = Proc.StandardOutput;
 						if(RedirectErrorsToStream){
-								Proc.StartInfo.UseShellExecute=false;
-								Proc.StartInfo.RedirectStandardError=true;
 								Proc.StandardError.BaseStream.CopyToAsync(ErrDestination.BaseStream);
 						}
 				}
