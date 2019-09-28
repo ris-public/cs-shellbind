@@ -98,6 +98,9 @@ namespace Rishi.PairStream{
 			new Thread(()=>B.CopyToAsync(A)).Start();
 		}
 	}
+///<summary>
+/// A subclass of <c>Rishi.PairStream.pair</c> which keeps track of number of bytes transferred until Reset().
+///</summary>
 	public class statpair: pair {
 		private ulong _BR;
 		private ulong _BW;
