@@ -87,6 +87,9 @@ namespace Rishi.PairStream{
 			new Thread(()=>A.CopyTo(B)).Start();
 			new Thread(()=>B.CopyTo(A)).Start();
 		}
+///<summary>
+/// Async bind two streams. Doesn't throw an exception to the thread from which it is being called.
+///</summary>
 		public static void BindStreamsAsync(Stream A, Stream B){
 			new Thread(()=>A.CopyToAsync(B)).Start();
 			new Thread(()=>B.CopyToAsync(A)).Start();
