@@ -26,7 +26,7 @@ namespace ProxyClient
         class Program_Error
         {
                 static int Main(string[] args){
-                        ShellSocket SS = new ShellSocket("yes 1>&2", "hi");
+                        ShellSocket SS = new ShellSocket("bash -c \"yes hi 1>&2\"", "hi");
                         System.Console.WriteLine("Starting...");
 						SS.RedirectErrorsToConsole=true;
                         SS.Start();
