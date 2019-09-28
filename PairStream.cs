@@ -84,7 +84,7 @@ namespace Rishi.PairStream{
 			}
 		}
 ///<summary>
-/// Bind two streams (i.e. SR→SW, SW→SR) or read from Stream A and writeto Stream B and read from B and write to A).
+/// Bind two streams (i.e. SR→SW, SW→SR or read from Stream A and write to Stream B and read from B and write to A).
 ///</summary>
 		public static void BindStreams(Stream A, Stream B){
 			new Thread(()=>A.CopyTo(B)).Start();
