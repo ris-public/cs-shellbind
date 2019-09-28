@@ -111,14 +111,17 @@ namespace Rishi.ShellBind {
 if(Unbuffer == "" or Unbuffer==null){
 			this.Proc.StartInfo.FileName=$"{Unbuffer}";
 			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
+			this.Proc.StartInfo.FileName=$"{Command}";
+			Proc.StartInfo.Arguments=$"{Args}";
 }
 else {
+			this.Proc.StartInfo.FileName=$"{Command}";
+			Proc.StartInfo.Arguments=$"{Args}";
 			this.Proc.StartInfo.FileName=$"{Unbuffer}";
 			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
 }
 			this.Proc.StartInfo.UseShellExecute = false;
 			this.Proc.StartInfo.RedirectStandardOutput = true;
-			Proc.StartInfo.Arguments=$"{Unbuffer_Args} {Command} {Args}";
 			Proc.StartInfo.RedirectStandardInput=true;
 			if (RedirectErrorsToConsole){
 			}
