@@ -120,7 +120,7 @@ namespace Rishi.ShellBind {
 						this.Proc.StartInfo.RedirectStandardOutput = true;
 						Proc.StartInfo.RedirectStandardInput=true;
 						if (RedirectErrorsToConsole){
-							RedirectErrorsTo(new StreamWriter(Console.OpenStandardError());
+							CopyErrorsTo(new StreamWriter(Console.OpenStandardError()));
 						}
 						Proc.Start();
 						if (VERBOSE){
