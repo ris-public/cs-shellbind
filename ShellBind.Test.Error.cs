@@ -23,11 +23,12 @@ using Rishi.PairStream;
 
 namespace ProxyClient
 {
-        class Program
+        class Program_Error
         {
                 static int Main(string[] args){
-                        ShellSocket SS = new ShellSocket("yes", "hi");
+                        ShellSocket SS = new ShellSocket("yes 1>&2", "hi");
                         System.Console.WriteLine("Starting...");
+						SS.RedirectErrorsToConsole=true;
                         SS.Start();
                         Stream S = SS.GetStream();
                         System.Console.WriteLine("ShellSocket created...");

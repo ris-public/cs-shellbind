@@ -8,7 +8,7 @@
 <Authors>Rishikeshan L.</Authors>
 <Company>N/A</Company>
 <PackageTags>Shell;Stream</PackageTags>
-<StartupObject>Rishi.ProxyClient.Program</StartupObject>
+<StartupObject>ProxyClient.Program_Error</StartupObject>
 <Description>
 Bind command as stream.
 </Description>
