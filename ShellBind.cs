@@ -27,7 +27,7 @@ using Rishi.PairStream;
 
 namespace Rishi.ShellBind {
 ///<summary>
-/// The ShellSocket class.
+/// The ShellSocket class of the module Rishi.ShellBind. Binds a command as a stream.
 ///</summary>
 	public class ShellSocket{
 
