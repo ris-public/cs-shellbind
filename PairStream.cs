@@ -130,6 +130,9 @@ namespace Rishi.PairStream{
 		}
 	}
 
+///<summary>
+/// A subclass of <c>Rishi.PairStream.statpair</c> which copies to an array of streams.
+///</summary>
 	public class DupStream : statpair {
 		public DupStream (StreamReader A, StreamWriter B): base(A, B){}
 		public async Task CopyToAsyncInternal(Stream[] destinations, Int32 bufferSize, CancellationToken cancellationToken)
