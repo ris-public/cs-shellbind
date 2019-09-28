@@ -125,6 +125,8 @@ namespace Rishi.ShellBind {
 			A = Proc.StandardInput;
 			B = Proc.StandardOutput;
 			if(RedirectErrorsToStream){
+				Proc.StartInfo.UseShellExecute=false;
+				Proc.StartInfo.RedirectStandardError=true;
 				Proc.StandardError.BaseStream.CopyToAsync(ErrDestination.BaseStream);
 			}
 		}
