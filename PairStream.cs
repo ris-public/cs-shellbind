@@ -20,7 +20,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+#if !NETSTANDARD2_1
 using System.Buffers;
+#endif
 
 namespace Rishi.PairStream{
 ///<summary>
