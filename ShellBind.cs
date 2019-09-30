@@ -99,21 +99,6 @@ namespace Rishi.ShellBind {
 							UseStdbuf=true;
 						else
 							UseStdbuf=false;
-						if(UseStdbuf)
-						{	
-							Unbuffer = "stdbuf";
-							Unbuffer_Args="-i0 -o0";
-						}
-						if(UseUnbuffer)
-						{	
-							Unbuffer = "unbuffer";
-							Unbuffer_Args="-p";
-						}
-						else
-						{	
-							Unbuffer = "";
-							Unbuffer_Args="";
-						}
 						this._RedirectErrorsToConsole=false;
 						this.RedirectErrorsToStream=false;
 						this.VERBOSE=false;
@@ -123,6 +108,7 @@ namespace Rishi.ShellBind {
 				///Constructor.
 				///</summary>
 				public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
+						this.UseStdbuf=false;
 						this.Proc = new Process();
 						this.Command=Command;
 						this.Args=Args;
@@ -137,7 +123,22 @@ namespace Rishi.ShellBind {
 				///Starts the process.
 				///</summary>
 				public void Start(){
-
+					
+						if(UseStdbuf)
+						{	
+							Unbuffer = "stdbuf";
+							Unbuffer_Args="-i0 -o0";
+						}
+						else if(UseUnbuffer)
+						{	
+							Unbuffer = "unbuffer";
+							Unbuffer_Args="-p";
+						}
+						else
+						{	
+							Unbuffer = "";
+							Unbuffer_Args="";
+						}
 						if(Unbuffer == "" || Unbuffer==null){
 								this.Proc.StartInfo.FileName=$"{Command}";
 								Proc.StartInfo.Arguments=$"{Args}";
