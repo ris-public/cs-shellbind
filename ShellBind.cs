@@ -134,11 +134,6 @@ namespace Rishi.ShellBind {
 							Unbuffer = "unbuffer";
 							Unbuffer_Args="-p";
 						}
-						else
-						{	
-							Unbuffer = "";
-							Unbuffer_Args="";
-						}
 						if(Unbuffer == "" || Unbuffer==null){
 								this.Proc.StartInfo.FileName=$"{Command}";
 								Proc.StartInfo.Arguments=$"{Args}";
