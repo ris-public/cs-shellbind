@@ -24,6 +24,7 @@ using System.Threading.Tasks;
 using System.Buffers;
 using Rishi.PairStream;
 using System.Runtime.InteropServices;
+using static System.Runtime.InteropServices.RuntimeInformation;
 
 
 namespace Rishi.ShellBind {
@@ -95,7 +96,11 @@ namespace Rishi.ShellBind {
 						this.Proc = new Process();
 						this.Command=Command;
 						this.Args=Args;
-						if ( OSPlatform ==  OSPlatform.Linux ||  OSPlatform ==  OSPlatform.FreeBSD ||  OSPlatform == OSPlatform.OSX)
+#if NETCOREAPP3_0
+						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.FreeBSD) ||  IsOSPlatform(OSPlatform.OSX))
+#else
+						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
+#endif
 							UseStdbuf=true;
 						else
 							UseStdbuf=false;
