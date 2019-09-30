@@ -35,7 +35,7 @@ namespace ProxyClient
 #endif
 										SS = new ShellSocket("yes", "hi");
 								else
-										SS = new ShellSocket("yes", "hi");
+										SS = new ShellSocket("cmd", "/c echo hi");;
                         System.Console.WriteLine("Starting...");
                         SS.Start();
                         Stream S = SS.GetStream();
