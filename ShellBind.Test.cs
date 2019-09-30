@@ -27,6 +27,15 @@ namespace ProxyClient
         class Program
         {
                 static int Main(string[] args){
+						ShellSocket SS;
+#if NETCOREAPP3_0
+						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.FreeBSD) ||  IsOSPlatform(OSPlatform.OSX))
+#else
+								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
+#endif
+										SS = 
+								else
+										SS = 
                         ShellSocket SS = new ShellSocket("yes", "hi");
                         System.Console.WriteLine("Starting...");
                         SS.Start();
