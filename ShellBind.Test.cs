@@ -28,7 +28,7 @@ namespace ProxyClient
         {
                 static int Main(string[] args){
 						ShellSocket SS;
-#if NETCOREAPP3_0
+#if !(NETSTANDARD2_0 || NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2)
 						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.FreeBSD) ||  IsOSPlatform(OSPlatform.OSX))
 #else
 								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
