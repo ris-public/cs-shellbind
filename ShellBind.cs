@@ -62,6 +62,7 @@ namespace Rishi.ShellBind {
 				///Whether error stream (STDERR) should be redirected to STDOUT.
 				///Won't be using UseShellExecute if set.
 				///Docs: To use StandardError, you must set ProcessStartInfo.UseShellExecute to false, and you must set ProcessStartInfo.RedirectStandardError to true. Otherwise, reading from the StandardError stream throws an exception. 
+				///To be set before Start()ing.
 				///</summary>
 				public bool RedirectErrorsToConsole{
 						get {return _RedirectErrorsToConsole;}
