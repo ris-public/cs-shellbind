@@ -23,6 +23,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Buffers;
 using Rishi.PairStream;
+using System.Runtime.InteropServices;
 
 
 namespace Rishi.ShellBind {
@@ -86,7 +87,8 @@ namespace Rishi.ShellBind {
 						this.Proc = new Process();
 						this.Command=Command;
 						this.Args=Args;
-						if()
+						if ( OSPlatform ==  OSPlatform.Linux ||  OSPlatform ==  OSPlatform.FreeBSD ||  OSPlatform == OSPlatform.)
+						if(UseStdbuf)
 						{	
 							Unbuffer = "stdbuf";
 							Unbuffer_Args="-i0 -o0";
