@@ -104,11 +104,11 @@ namespace Rishi.ShellBind {
 #if NETCOREAPP3_0
 						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.FreeBSD) ||  IsOSPlatform(OSPlatform.OSX))
 #else
-						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
+								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
 #endif
-							UseStdbuf=true;
-						else
-							UseStdbuf=false;
+										UseStdbuf=true;
+								else
+										UseStdbuf=false;
 						this._RedirectErrorsToConsole=false;
 						this.RedirectErrorsToStream=false;
 						this.VERBOSE=false;
@@ -117,10 +117,10 @@ namespace Rishi.ShellBind {
 				///<summary>
 				///Constructor.
 				///<seealso cref="ShellSocket(string, string)"/>
-/// <param name="Command">A command.</param>
-/// <param name="Args">Arguments.</param>
-/// <param name="Unbuffer_Command">Unbuffer command. Use "" or null to run directly at your own risk.</param>
-/// <param name="Unbuffer_Args">Unbuffer arguments.</param>
+				/// <param name="Command">A command.</param>
+				/// <param name="Args">Arguments.</param>
+				/// <param name="Unbuffer_Command">Unbuffer command. Use "" or null to run directly at your own risk.</param>
+				/// <param name="Unbuffer_Args">Unbuffer arguments.</param>
 				///</summary>
 				public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
 						this.UseStdbuf=false;
@@ -138,16 +138,16 @@ namespace Rishi.ShellBind {
 				///Starts the process.
 				///</summary>
 				public void Start(){
-					
+
 						if(UseStdbuf)
 						{	
-							Unbuffer = "stdbuf";
-							Unbuffer_Args="-i0 -o0";
+								Unbuffer = "stdbuf";
+								Unbuffer_Args="-i0 -o0";
 						}
 						else if(UseUnbuffer)
 						{	
-							Unbuffer = "unbuffer";
-							Unbuffer_Args="-p";
+								Unbuffer = "unbuffer";
+								Unbuffer_Args="-p";
 						}
 						if(Unbuffer == "" || Unbuffer==null){
 								this.Proc.StartInfo.FileName=$"{Command}";
@@ -161,14 +161,14 @@ namespace Rishi.ShellBind {
 						this.Proc.StartInfo.RedirectStandardOutput = true;
 						Proc.StartInfo.RedirectStandardInput=true;
 						if (RedirectErrorsToConsole){
-							CopyErrorsTo(new StreamWriter(Console.OpenStandardError()));
+								CopyErrorsTo(new StreamWriter(Console.OpenStandardError()));
 								Proc.StartInfo.RedirectStandardError=true;
 								Proc.StartInfo.UseShellExecute=false;
 						}
 						if(RedirectErrorsToStream){
 								Proc.StartInfo.UseShellExecute=false;
 								Proc.StartInfo.RedirectStandardError=true;
-							}
+						}
 						Proc.Start();
 						if (VERBOSE){
 								SetColour(5,0);
