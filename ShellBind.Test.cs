@@ -33,10 +33,9 @@ namespace ProxyClient
 #else
 								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
 #endif
-										SS = 
+										SS = new ShellSocket("yes", "hi");
 								else
-										SS = 
-                        ShellSocket SS = new ShellSocket("yes", "hi");
+										SS = new ShellSocket("yes", "hi");
                         System.Console.WriteLine("Starting...");
                         SS.Start();
                         Stream S = SS.GetStream();
