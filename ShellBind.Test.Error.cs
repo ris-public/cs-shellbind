@@ -35,7 +35,7 @@ namespace ProxyClient
 #endif
 										SS = new ShellSocket("bash -c \"yes hi 1>&2\"", "hi");
 								else
-										SS = new ShellSocket("cmd /c \"echo hi 1>&2\"", "");
+										SS = new ShellSocket("cmd", " /c \"echo hi 1>&2\"");
 						System.Console.WriteLine("Starting...");
 						SS.RedirectErrorsToConsole=true;
 						SS.Start();
