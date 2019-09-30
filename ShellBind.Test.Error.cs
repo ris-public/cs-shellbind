@@ -27,7 +27,14 @@ namespace ProxyClient
         class Program_Error
         {
                 static int Main(string[] args){
+#if NETCOREAPP3_0
+						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.FreeBSD) ||  IsOSPlatform(OSPlatform.OSX))
+#else
+						if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
+#endif
                         ShellSocket SS = new ShellSocket("bash -c \"yes hi 1>&2\"", "hi");
+						else
+                        ShellSocket SS = new ShellSocket("cmd /c \"echo hi 1>&2\"", "");
                         System.Console.WriteLine("Starting...");
 						SS.RedirectErrorsToConsole=true;
                         SS.Start();
