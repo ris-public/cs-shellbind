@@ -22,7 +22,7 @@ Bind command as stream.
 <PackageIcon>icon.png</PackageIcon>
 <Copyright>Copyright © [2019] RISHIKESHAN LAVAKUMAR "github-public [at] ris.fi"
 </Copyright>
-<TargetFrameworks>netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
+<TargetFrameworks>netstandard2.0;netcoreapp2.1;netcoreapp2.2</TargetFrameworks>
 <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
