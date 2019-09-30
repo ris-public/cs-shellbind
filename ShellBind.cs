@@ -115,6 +115,7 @@ namespace Rishi.ShellBind {
 				}
 				///<summary>
 				///Constructor.
+				///<seealso cref="ShellSocket(string, string, string, string)"/>
 				///</summary>
 				public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
 						this.UseStdbuf=false;
