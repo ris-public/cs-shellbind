@@ -81,13 +81,21 @@ namespace Rishi.ShellBind {
 				public bool RedirectErrorsToStream;
 
 				///<summary>
+				///Specify whether to use GNU/BSD stdbuf.
+				///</summary>
+				public bool UseStdbuf;
+				public bool UseUnbuffer;
+				///<summary>
 				///Constructor. Uses the GNU/BSD stdbuf by default. If you don't like it, please see the one which specifies it and pass an empty string.
 				///</summary>
 				public ShellSocket(string Command, string Args){
 						this.Proc = new Process();
 						this.Command=Command;
 						this.Args=Args;
-						if ( OSPlatform ==  OSPlatform.Linux ||  OSPlatform ==  OSPlatform.FreeBSD ||  OSPlatform == OSPlatform.)
+						if ( OSPlatform ==  OSPlatform.Linux ||  OSPlatform ==  OSPlatform.FreeBSD ||  OSPlatform == OSPlatform.OSX)
+							UseStdbuf=true;
+						else
+							UseStdbuf=false;
 						if(UseStdbuf)
 						{	
 							Unbuffer = "stdbuf";
