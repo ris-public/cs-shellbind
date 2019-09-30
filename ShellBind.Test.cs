@@ -19,6 +19,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Rishi.ShellBind;
 using Rishi.PairStream;
+using System.Runtime.InteropServices;
+using static System.Runtime.InteropServices.RuntimeInformation;
 
 namespace ProxyClient
 {
