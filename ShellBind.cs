@@ -86,8 +86,21 @@ namespace Rishi.ShellBind {
 						this.Proc = new Process();
 						this.Command=Command;
 						this.Args=Args;
-						Unbuffer = "stdbuf";
-						Unbuffer_Args="-i0 -o0";
+						if()
+						{	
+							Unbuffer = "stdbuf";
+							Unbuffer_Args="-i0 -o0";
+						}
+						if(UseUnbuffer)
+						{	
+							Unbuffer = "unbuffer";
+							Unbuffer_Args="-p";
+						}
+						else
+						{	
+							Unbuffer = "";
+							Unbuffer_Args="";
+						}
 						this._RedirectErrorsToConsole=false;
 						this.RedirectErrorsToStream=false;
 						this.VERBOSE=false;
