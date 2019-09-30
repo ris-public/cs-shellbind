@@ -21,7 +21,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+#if !NETSTANDARD2_0
 using System.Buffers;
+#endif
 using Rishi.PairStream;
 using System.Runtime.InteropServices;
 using static System.Runtime.InteropServices.RuntimeInformation;
