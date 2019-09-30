@@ -95,6 +95,7 @@ namespace Rishi.ShellBind {
 				public bool UseUnbuffer;
 				///<summary>
 				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or none on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
+				///<seealso cref="ShellSocket(string, string, string, string)"/>
 				///</summary>
 				public ShellSocket(string Command, string Args){
 						this.Proc = new Process();
@@ -115,7 +116,11 @@ namespace Rishi.ShellBind {
 				}
 				///<summary>
 				///Constructor.
-				///<seealso cref="ShellSocket(string, string, string, string)"/>
+				///<seealso cref="ShellSocket(string, string)"/>
+/// <param name="Command">A command.</param>
+/// <param name="Args">Arguments.</param>
+/// <param name="Unbuffer_Command">Unbuffer command. Use "" or null to run directly at your own risk.</param>
+/// <param name="Unbuffer_Args">Unbuffer arguments.</param>
 				///</summary>
 				public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
 						this.UseStdbuf=false;
