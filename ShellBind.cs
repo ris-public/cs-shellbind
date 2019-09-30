@@ -89,7 +89,7 @@ namespace Rishi.ShellBind {
 				///</summary>
 				public bool UseUnbuffer;
 				///<summary>
-				///Constructor. Uses the GNU/BSD stdbuf by default. If you don't like it, please see the one which specifies it and pass an empty string.
+				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or none on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
 				///</summary>
 				public ShellSocket(string Command, string Args){
 						this.Proc = new Process();
