@@ -118,12 +118,12 @@ namespace Rishi.ShellBind {
 				}
 				///<summary>
 				///Constructor.
+				///</summary>
 				///<seealso cref="ShellSocket(string, string)"/>
 				/// <param name="Command">A command.</param>
 				/// <param name="Args">Arguments.</param>
 				/// <param name="Unbuffer_Command">Unbuffer command. Use "" or null to run directly at your own risk.</param>
 				/// <param name="Unbuffer_Args">Unbuffer arguments.</param>
-				///</summary>
 				public ShellSocket(string Command, string Args, string Unbuffer_Command, string Unbuffer_Args){
 						this.UseStdbuf=false;
 						this.Proc = new Process();
