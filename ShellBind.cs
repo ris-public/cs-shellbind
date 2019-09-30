@@ -84,6 +84,9 @@ namespace Rishi.ShellBind {
 				///Specify whether to use GNU/BSD stdbuf.
 				///</summary>
 				public bool UseStdbuf;
+				///<summary>
+				///Specify whether to use GNU/BSD unbuffer (TCL expect).
+				///</summary>
 				public bool UseUnbuffer;
 				///<summary>
 				///Constructor. Uses the GNU/BSD stdbuf by default. If you don't like it, please see the one which specifies it and pass an empty string.
