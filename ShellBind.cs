@@ -98,7 +98,7 @@ namespace Rishi.ShellBind {
                 ///</summary>
                 public bool UseWinpty;
 				///<summary>
-				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or none on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
+				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or WinPTY on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
 				///</summary>
 				/// <param name="Command">A command.</param>
 				/// <param name="Args">Arguments.</param>
