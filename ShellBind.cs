@@ -113,10 +113,11 @@ namespace Rishi.ShellBind {
 								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
 #endif
 										UseStdbuf=true;
-								else {
+								else  if ( IsOSPlatform(OSPlatform.Windows) {
 										UseStdbuf=false;
 										UseWinpty=true;
 								}
+								else UseStdbuf=false;
 						this._RedirectErrorsToConsole=false;
 						this.RedirectErrorsToStream=false;
 						this.VERBOSE=false;
