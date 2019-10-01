@@ -94,7 +94,7 @@ namespace Rishi.ShellBind {
 				///</summary>
 				public bool UseUnbuffer;
                 ///<summary>
-                ///Specify whether to use GNU/BSD unbuffer (TCL expect).
+                ///Specify whether to use WinPTY.
                 ///</summary>
                 public bool UseWinpty;
 				///<summary>
