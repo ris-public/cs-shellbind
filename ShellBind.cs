@@ -109,8 +109,10 @@ namespace Rishi.ShellBind {
 								if ( IsOSPlatform(OSPlatform.Linux) ||  IsOSPlatform(OSPlatform.OSX))
 #endif
 										UseStdbuf=true;
-								else
+								else {
 										UseStdbuf=false;
+										UseWinpty=true;
+								}
 						this._RedirectErrorsToConsole=false;
 						this.RedirectErrorsToStream=false;
 						this.VERBOSE=false;
@@ -150,6 +152,11 @@ namespace Rishi.ShellBind {
 						{	
 								Unbuffer = "unbuffer";
 								Unbuffer_Args="-p";
+						}
+						else if(UseWinpty)
+						{	
+								Unbuffer = "winpty.exe";
+								Unbuffer_Args="-Xallow-non-tty -Xplain";
 						}
 						if(Unbuffer == "" || Unbuffer==null){
 								this.Proc.StartInfo.FileName=$"{Command}";
