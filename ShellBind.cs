@@ -275,7 +275,7 @@ namespace Rishi.ShellBind {
 				{
 						if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 						{
-								return Environment.GetEnvironmentVariable("PATH").Split(";");
+								return Environment.GetEnvironmentVariable("PATH").Split(';');
 						}
 #if !(NETSTANDARD2_0 || NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2)
 						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)|| RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
@@ -283,7 +283,7 @@ namespace Rishi.ShellBind {
 						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 #endif
 						{
-								return Environment.GetEnvironmentVariable("PATH").Split(";");
+								return Environment.GetEnvironmentVariable("PATH").Split(';');
 						}
 						else return new string[] { Directory.GetCurrentDirectory() };
 				}
