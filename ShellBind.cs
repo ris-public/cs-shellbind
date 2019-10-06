@@ -93,10 +93,10 @@ namespace Rishi.ShellBind {
 				///Specify whether to use GNU/BSD unbuffer (TCL expect).
 				///</summary>
 				public bool UseUnbuffer;
-                ///<summary>
-                ///Specify whether to use WinPTY.
-                ///</summary>
-                public bool UseWinpty;
+				///<summary>
+				///Specify whether to use WinPTY.
+				///</summary>
+				public bool UseWinpty;
 				///<summary>
 				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or WinPTY on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
 				///</summary>
@@ -240,6 +240,52 @@ namespace Rishi.ShellBind {
 				private static void ResetColour(){
 						System.Console.Error.WriteLine("\u001b[39m");
 						System.Console.Error.WriteLine("\u001b[49m");
+				}
+				static string[] ExecutableSuffixList()
+				{
+						if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+						{
+								return new string[] { ".com", ".exe", ".bat", ".cmd", "" };
+						}
+#if !(NETSTANDARD2_0 || NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2)
+						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)|| RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+#else
+						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+#endif
+						{
+								return new string[] { "" };
+						}
+						else return null;
+				}
+				static bool CheckExecutableExistence(string ExecutableName)
+				{
+						string[] Paths = GetPaths();
+						foreach (string Path in Paths)
+						{
+								foreach (string Suffix in ExecutableSuffixList())
+								{
+										string Filename = Path + "/" + ExecutableName + Suffix;
+										System.Console.WriteLine("Checking: {0}", Filename);
+										if (File.Exists(Filename)) return true;
+								}
+						}
+						return false;
+				}
+				static public string[] GetPaths()
+				{
+						if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+						{
+								return Environment.GetEnvironmentVariable("PATH").Split(";");
+						}
+#if !(NETSTANDARD2_0 || NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2)
+						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)|| RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD))
+#else
+						else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+#endif
+						{
+								return Environment.GetEnvironmentVariable("PATH").Split(";");
+						}
+						else return new string[] { Directory.GetCurrentDirectory() };
 				}
 		}
 }
