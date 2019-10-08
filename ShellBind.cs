@@ -101,7 +101,7 @@ namespace Rishi.ShellBind {
 				///<summary>
 				///Auto configure the environment on failure on presumed interactive terminals.
 				///</summary>
-				public bool AutoConfigure;
+				public bool AutoConfigure=true;
 				///<summary>
 				///Constructor. Uses the GNU/BSD stdbuf by default (Unix/-like) or WinPTY on Windows. If you don't like it, please see the one which specifies it and pass an empty string.
 				///</summary>
