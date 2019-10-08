@@ -27,6 +27,7 @@ using System.Buffers;
 using Rishi.PairStream;
 using System.Runtime.InteropServices;
 using static System.Runtime.InteropServices.RuntimeInformation;
+using System.Net;
 
 
 namespace Rishi.ShellBind {
