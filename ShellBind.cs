@@ -318,7 +318,7 @@ somewhere else.";
 						{
 								return new string[] { "" };
 						}
-						else return null;
+						else return new string[] { "" };
 				}
 				/// <summary>
 				/// Check for executable's existence in the system PATH.
