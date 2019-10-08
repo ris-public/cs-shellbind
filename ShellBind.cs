@@ -190,7 +190,7 @@ namespace Rishi.ShellBind {
 						}
 						catch (System.ComponentModel.Win32Exception E)
 						{
-								if (IsOSPlatform(OSPlatform.Windows) && IsInteractive())
+								if (IsOSPlatform(OSPlatform.Windows) && IsInteractive() && AutoConfigure)
 								{
 										PromptDownload("WinPTY");
 										Start();
