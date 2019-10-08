@@ -200,7 +200,7 @@ namespace Rishi.ShellBind {
 						{
 								if (IsOSPlatform(OSPlatform.Windows) && IsInteractive() && AutoConfigure)
 								{
-										PromptDownload("WinPTY");
+										PromptDownload(PackageName);
 										Start();
 										return;
 								}
