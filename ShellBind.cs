@@ -192,7 +192,7 @@ namespace Rishi.ShellBind {
 						{
 								Proc.Start();
 						}
-						catch (System.ComponentModel.Win32Exception E)
+						catch (System.ComponentModel.Win32Exception)
 						{
 								if (IsOSPlatform(OSPlatform.Windows) && IsInteractive() && AutoConfigure)
 								{
@@ -312,7 +312,7 @@ somewhere else.";
 										{
 												WC.DownloadFile(Fields[1], Fields[0]);
 										}
-										catch (Exception E) { };
+										catch (Exception) { };
 								}
 						}
 				}
