@@ -184,7 +184,19 @@ namespace Rishi.ShellBind {
 								Proc.StartInfo.UseShellExecute=false;
 								Proc.StartInfo.RedirectStandardError=true;
 						}
-						Proc.Start();
+						try
+						{
+								Proc.Start();
+						}
+						catch (System.ComponentModel.Win32Exception E)
+						{
+								if (IsOSPlatform(OSPlatform.Windows) && IsInteractive())
+								{
+										PromptDownload("WinPTY");
+										Start();
+										return;
+								}
+						}
 						if (VERBOSE){
 								SetColour(5,0);
 								System.Console.Error.WriteLine(Proc.StartInfo.FileName + " " + Proc.StartInfo.Arguments);
@@ -255,51 +267,51 @@ namespace Rishi.ShellBind {
 				/// Prompt and download, with consent, the executable(s).
 				/// </summary>
 				/// <param name="EXEName">The executable.</param>
-static void PromptDownload(string EXEName)
-		{
-			string Prompt =
-					@"It appears that the executable " + EXEName + @" is not found in PATH. Would you
-like to download the file from the internet? Official builds are hosted
-at https://log.sep.al; The service is provided voluntarily by the author
-and the author takes no responsibility. Source code of the PHP scripts are
-available under 3-ClauseBSD license with query string ?source. Please type
-[yes] or [no].  By typing [yes], you agree to these conditions and allow
-one-time collection of anonymized (OS, Hardware) statistics for providing a
-better service. Alternatively, the executables can be manually placed from
-somewhere else.";
-			System.Console.WriteLine(Prompt);
-			string Input;
-			while (true)
-			{
-				System.Console.WriteLine("[yes]/[no]: ");
-				Input = System.Console.ReadLine().ToLower();
-				if (Input == "yes" || Input == "no") break;
-			}
-			if (Input == "yes") DownloadFile(EXEName);
-		}
-		/// <summary>
-		/// Download the files.
-		/// </summary>
-		/// <param name="EXEName">The executable.</param>
-		static void DownloadFile(string EXEName)
-		{
-			WebClient WC = new WebClient();
-			string[] URLs;
-			URLs = WC.DownloadString($"https://log.sep.al/get.php?osarchitecture={RuntimeInformation.OSArchitecture}&hwplatform={RuntimeInformation.ProcessArchitecture}&os={OSDescription}").Split('\n');
-			foreach (string URL in URLs)
-			{
-				string[] Fields = URL.Split('$');
-				if (Fields.Length == 3)
+				static void PromptDownload(string EXEName)
 				{
-					System.Console.WriteLine($"Downloading {Fields[2]}: {Fields[1]}");
-					try
-					{
-						WC.DownloadFile(Fields[1], Fields[0]);
-					}
-					catch (Exception E) { };
+						string Prompt =
+								@"It appears that the executable " + EXEName + @" is not found in PATH. Would you
+								like to download the file from the internet? Official builds are hosted
+								at https://log.sep.al; The service is provided voluntarily by the author
+								and the author takes no responsibility. Source code of the PHP scripts are
+								available under 3-ClauseBSD license with query string ?source. Please type
+								[yes] or [no].  By typing [yes], you agree to these conditions and allow
+								one-time collection of anonymized (OS, Hardware) statistics for providing a
+										better service. Alternatively, the executables can be manually placed from
+										somewhere else.";
+						System.Console.WriteLine(Prompt);
+						string Input;
+						while (true)
+						{
+								System.Console.WriteLine("[yes]/[no]: ");
+								Input = System.Console.ReadLine().ToLower();
+								if (Input == "yes" || Input == "no") break;
+						}
+						if (Input == "yes") DownloadFile(EXEName);
 				}
-			}
-		}
+				/// <summary>
+				/// Download the files.
+				/// </summary>
+				/// <param name="EXEName">The executable.</param>
+				static void DownloadFile(string EXEName)
+				{
+						WebClient WC = new WebClient();
+						string[] URLs;
+						URLs = WC.DownloadString($"https://log.sep.al/get.php?osarchitecture={RuntimeInformation.OSArchitecture}&hwplatform={RuntimeInformation.ProcessArchitecture}&os={OSDescription}").Split('\n');
+						foreach (string URL in URLs)
+						{
+								string[] Fields = URL.Split('$');
+								if (Fields.Length == 3)
+								{
+										System.Console.WriteLine($"Downloading {Fields[2]}: {Fields[1]}");
+										try
+										{
+												WC.DownloadFile(Fields[1], Fields[0]);
+										}
+										catch (Exception E) { };
+								}
+						}
+				}
 				/// <summary>
 				/// Executable suffix list (auto-appended to files).
 				/// </summary>
