@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>cs_shellbind</RootNamespace>
 <PackageId>Rishi.ShellBind</PackageId>
-<Version>1.2.0</Version>
+<Version>1.3.0-stable</Version>
 <Authors>Rishikeshan L.</Authors>
 <Company>N/A</Company>
 <PackageTags>Shell;Stream</PackageTags>
